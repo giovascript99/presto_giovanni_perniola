@@ -1,4 +1,5 @@
 <x-layout>
+
     <div class="container pt-5">
         <div class="row justify-content-center">
             <div class="col-12 text-center">
@@ -13,4 +14,5 @@
             </div>
         </div>
     </div>
+
 </x-layout>

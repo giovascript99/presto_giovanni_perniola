@@ -19,7 +19,7 @@ class ArticleCreateForm extends Component
     #[Validate('numeric', message: 'Il prezzo deve essere un numero.')]
     public $price;
     #[Validate('required', message: 'La categoria è obbligatoria.')]
-    public $category;
+    public $category_id;
     public $article;
 
     public function store()
@@ -29,7 +29,7 @@ class ArticleCreateForm extends Component
             'title' => $this->title,
             'description' => $this->description,
             'price' => $this->price,
-            'category' => $this->category,
+            'category_id' => $this->category_id,
             'user_id' => Auth::id()
         ]);
 

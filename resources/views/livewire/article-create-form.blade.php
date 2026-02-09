@@ -30,14 +30,14 @@
             @enderror
         </div>
         <div class="mb-3">
-            <select id="category" wire:model.blur="category"
-                class="form-control @error('category') is-invalid @enderror">
+            <select id="category_id" wire:model.blur="category_id"
+                class="form-control @error('category_id') is-invalid @enderror">
                 <option value="">Seleziona una categoria</option>
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>
-            @error('category')
+            @error('category_id')
                 <p class="fst-italic text-danger">{{ $message }}</p>
             @enderror
         </div>
