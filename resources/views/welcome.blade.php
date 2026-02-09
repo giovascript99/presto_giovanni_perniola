@@ -9,6 +9,18 @@
                         <a class="btn btn-primary" href="{{ route('article.create') }}">Pubblica un articolo</a>
                     @endauth
                 </div>
+                <div class="d-flex justify-content-center">
+                    @if (session()->has('errorMessage'))
+                        <div class="alert alert-danger text-center shadow rounded w-50">
+                            {{ session('errorMessage') }}
+                        </div>
+                    @endif
+                    @if (session()->has('message'))
+                        <div class="alert alert-success text-center shadow rounded w-50">
+                            {{ session('message') }}
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
         <div class="row height-custom justify-content-center align-items-center py-5">
