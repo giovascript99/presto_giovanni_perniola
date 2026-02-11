@@ -12,16 +12,16 @@ class DatabaseSeeder extends Seeder
     use WithoutModelEvents;
 
     public $categories = [
-        'elettronica',
-        'abbigliamento',
-        'salute e bellezza',
-        'casa e giardinaggio',
-        'giocattoli',
+        'electronics',
+        'clothing',
+        'health_beauty',
+        'home_garden',
+        'toys',
         'sport',
-        'animali domestici',
-        'libri e riviste',
-        'accessori',
-        'motori'
+        'pets',
+        'books',
+        'accessories',
+        'motors'
     ];
 
     public function run(): void

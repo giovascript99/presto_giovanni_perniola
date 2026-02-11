@@ -3,10 +3,10 @@
     <div class="container-fluid text-center bg-body-tertiary">
         <div class="row justify-content-center align-items-center hero-section">
             <div class="col-12">
-                <h1 class="display-4 mb-4 text-white">Presto.it</h1>
+                <h1 class="display-4 mb-4 text-white">{{ __('ui.presto') }}</h1>
                 <div class="my-3">
                     @auth
-                        <a class="btn btn-primary" href="{{ route('article.create') }}">Pubblica un articolo</a>
+                        <a class="btn btn-primary" href="{{ route('article.create') }}">{{ __('ui.publishArticle') }}</a>
                     @endauth
                 </div>
                 <div class="d-flex justify-content-center">

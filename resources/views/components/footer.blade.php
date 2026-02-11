@@ -1,8 +1,8 @@
 <footer class="bg-body-secondary text-center">
     <div class="col-md-12 py-5 text-center">
-        <h5>Vuoi diventare revisore?</h5>
-        <p>Cliccando il bottone sottostante farai richiesta al nostro admin</p>
-        <a href="{{ route('become.revisor') }}" class="btn btn-success">diventa revisore</a>
+        <h5>{{__('ui.revisorRequestTitle')}}</h5>
+        <p>{{__('ui.revisorRequestSubtitle')}}</p>
+        <a href="{{ route('become.revisor') }}" class="btn btn-success">{{__('ui.revisorButton')}}</a>
     </div>
     <!-- Grid container -->
     <div class="container p-4 pb-0">
