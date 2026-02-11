@@ -6,7 +6,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{ route('homepage') }}">Home</a>
                 </li>
@@ -49,7 +49,7 @@
                             aria-expanded="false">
                             Ciao, {{ Auth::user()->name }}
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
+                        <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('article.create') }}">Crea articolo</a></li>
                             <hr class="dropdown-divider">
                             <li><a class="dropdown-item" href="#"
@@ -71,6 +71,15 @@
                         </ul>
                     </li>
                 @endauth
+                <form action="{{ route('article.search') }}" method="GET" role="search" class="d-flex ms-auto">
+                    <div class="input-group">
+                        <input type="search" name="query" class="form-control" placeholder="Search"
+                            aria-label="search">
+                        <button type="submit" class="input-group-text btn btn-outline-success" id="basic-addon2">
+                            Search
+                        </button>
+                    </div>
+                </form>
             </ul>
         </div>
     </div>
