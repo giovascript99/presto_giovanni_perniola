@@ -34,8 +34,10 @@ return
 
         // Footer revisor request
         'revisorRequestTitle' => 'Vuoi diventare revisore?',
-        'revisorRequestSubitle' => 'Cliccando il bottone sottostante farai richiesta al nostro admin.',
+        'revisorRequestSubtitle' => 'Cliccando il bottone sottostante farai richiesta al nostro admin.',
         'revisorButton' => 'Diventa revisore',
 
-
+        // Article byCategory
+        'byCategory_h1' => 'Articoli della categoria: ',
+        'noArticle' => 'Non sono ancora stati creati articoli per questa categoria!',
     ];

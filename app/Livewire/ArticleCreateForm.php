@@ -5,10 +5,13 @@ namespace App\Livewire;
 use App\Models\Article;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 
 class ArticleCreateForm extends Component
 {
+    use WithFileUploads;
+
     #[Validate('required', message: 'Il titolo è obbligatorio.')]
     #[Validate('min:5', message: 'Il titolo è troppo corto.')]
     public $title;
@@ -22,6 +25,28 @@ class ArticleCreateForm extends Component
     public $category_id;
     public $article;
 
+    public $images = [];
+    public $temporary_images;
+
+    public function updatedTemporaryImages()
+    {
+        if ($this->validate([
+            'temporary_images.*' => 'image|max:2048',
+            'temporary_images' => 'max:6'
+        ])) {
+            foreach ($this->temporary_images as $image) {
+                $this->images[] = $image;
+            }
+        }
+    }
+
+    public function removeImages($key)
+    {
+        if (in_array($key, array_keys($this->images))) {
+            unset($this->images[$key]);
+        }
+    }
+
     public function store()
     {
         $this->validate();
@@ -33,9 +58,14 @@ class ArticleCreateForm extends Component
             'user_id' => Auth::id()
         ]);
 
-        $this->reset();
+        if (count($this->images) > 0) {
+            foreach ($this->images as $image) {
+                $this->article->images()->create(['path' => $image->store('images', 'public')]);
+            }
+        }
 
         session()->flash('success', 'Articolo creato correttamente');
+        $this->reset();
     }
 
     public function render()

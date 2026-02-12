@@ -36,4 +36,8 @@ return
         'revisorRequestTitle' => '¿Quieres convertirte en revisor?',
         'revisorRequestSubtitle' => 'Al hacer clic en el botón a continuación, enviará una solicitud a nuestro administrador.',
         'revisorButton' => 'Conviértete en revisor',
+
+        // Article byCategory
+        'byCategory_h1' => 'Artículos en esta categoría: ',
+        'noArticle' => '¡Aún no se han creado artículos para esta categoría!',
     ];

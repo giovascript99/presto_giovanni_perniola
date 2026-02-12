@@ -36,4 +36,8 @@ return
         'revisorRequestTitle' => 'Do you want to become a reviewer?',
         'revisorRequestSubtitle' => 'By clicking the button below you will send a request to our admin.',
         'revisorButton' => 'Become a reviewer',
+
+        // Article byCategory
+        'byCategory_h1' => 'Articles in this category: ',
+        'noArticle' => 'No articles have been created for this category yet!',
     ];

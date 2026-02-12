@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
-use Laravel\Scout\Searchable;
+use App\Models\Category;
+use App\Models\Image;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Laravel\Scout\Searchable;
 
 class Article extends Model
 {
@@ -37,7 +41,7 @@ class Article extends Model
 
     public static function toBeRevisedCount()
     {
-        return Article::where('is_accepted', null)->count();
+        return self::where('is_accepted', null)->count();
     }
 
     public function toSearchableArray()
@@ -48,5 +52,10 @@ class Article extends Model
             'description' => $this->description,
             'category' => $this->category
         ];
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(Image::class);
     }
 }
