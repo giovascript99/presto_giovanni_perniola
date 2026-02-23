@@ -54,6 +54,9 @@
                             <li><a class="dropdown-item"
                                     href="{{ route('article.create') }}">{{ __('ui.articleCreate') }}</a></li>
                             <hr class="dropdown-divider">
+                            <li><a class="dropdown-item"
+                                    href="{{ route('user.dashboard') }}">User Dashboard</a></li>
+                            <hr class="dropdown-divider">
                             <li><a class="dropdown-item" href="#"
                                     onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">{{ __('ui.logout') }}</a>
                             </li>

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -16,13 +17,40 @@ class ArticleController extends Controller
     // Stiamo passando gli articoli della nostra piattaforma ordinati in ordine decrescente di creazione alla vista article.index
     public function index()
     {
-        $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->paginate(10);
+        $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->paginate(9);
         return view('article.index', compact('articles'));
     }
 
     public function show(Article $article)
     {
         return view('article.show', compact('article'));
+    }
+
+    public function edit(Article $article)
+    {
+        return view('article.edit', compact('article'));
+    }
+
+    public function destroy(Article $article)
+    {
+        if (Auth::id() !== $article->user_id) {
+            return redirect()->back()->with('error', 'Non sei autorizzato a compiere questa azione.');
+        }
+
+        // 1. Definiamo il percorso della cartella dell'articolo
+        // Se le tue foto sono in 'public/articles/ID_ARTICOLO/...'
+        $directory = "articles/{$article->id}";
+
+        // 2. Cancellazione Immagini Fisiche
+        // Elimina il file dalla cartella storage/app/public/articles/...
+        if (Storage::disk('public')->exists($directory)) {
+            Storage::disk('public')->deleteDirectory($directory);
+        }
+
+        // 3. Cancelliamo i record dal database
+        $article->delete();
+
+        return redirect()->route('user.dashboard')->with('message', 'Articolo eliminato definitivamente.');
     }
 
     public function byCategory(Category $category)

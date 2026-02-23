@@ -23,7 +23,15 @@
                 </div>
             </div>
         </div>
-        <div class="row height-custom justify-content-center align-items-center py-5">
+    </div>
+
+    <div class="container my-5">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="fw-bold border-bottom pb-2">Annunci Recenti</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-center py-5">
             @forelse ($articles as $article)
                 <div class="col-12 col-md-4 my-5">
                     <x-card :article="$article" />

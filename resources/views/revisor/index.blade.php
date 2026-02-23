@@ -1,9 +1,9 @@
 <x-layout>
 
-    <div class="container-fluid pt-5">
-        <div class="row">
-            <div class="col-3">
-                <h1 class="display-5 text-center pb-2">
+    <div class="container-fluid py-5">
+        <div class="row justify-content-center text-center">
+            <div class="col-12">
+                <h1 class="display-5 pb-2">
                     Revisor dashboard
                 </h1>
             </div>
@@ -21,15 +21,14 @@
                     <div class="row justify-content-center">
                         @if ($article_to_check->images->count())
                             @foreach ($article_to_check->images as $key => $image)
-                                <div class="col-6">
+                                <div class="col-10">
                                     <div class="card mb-3">
                                         <div class="row g-0">
-                                            <div class="col-md-4">
-                                                <img src="{{ $image->getUrl(300, 300) }}"
-                                                    class="img-fluid rounded-start p-2"
+                                            <div class="col-md-6">
+                                                <img src="{{ $image->getUrl(300, 300) }}" class="rounded-start"
                                                     alt="Immagine {{ $key + 1 }} dell'articolo '{{ $article_to_check->title }}">
                                             </div>
-                                            <div class="col-md-5 ps-3">
+                                            <div class="col-md-3 ps-3">
                                                 <div class="card-body">
                                                     <h5>Labels</h5>
                                                     @if ($image->labels)
@@ -95,23 +94,23 @@
                         @endif
                     </div>
                 </div>
-                <div class="col-md-4 ps-4 d-flex flex-column justify-content-between">
+                <div class="col-md-4 ps-4 d-flex flex-column justify-content-between sticky-top">
                     <div>
-                        <h1>{{ $article_to_check->title }}</h1>
+                        <h2>{{ $article_to_check->title }}</h2>
                         <h3>Autore: {{ $article_to_check->user->name }}</h3>
                         <h4>{{ $article_to_check->price }}€</h4>
                         <p class="h6">{{ $article_to_check->description }}</p>
                     </div>
-                    <div class="d-flex pb-4 justify-content-around">
-                        <form action="{{ route('reject', ['article' => $article_to_check]) }}" method="POST">
-                            @csrf
-                            @method('PATCH')
-                            <button class="btn btn-danger py-2 px-5 fw-bold">Rifiuta</button>
-                        </form>
+                    <div class="d-flex py-4 justify-content-around">
                         <form action="{{ route('accept', ['article' => $article_to_check]) }}" method="POST">
                             @csrf
                             @method('PATCH')
                             <button class="btn btn-success py-2 px-5 fw-bold">Accetta</button>
+                        </form>
+                        <form action="{{ route('reject', ['article' => $article_to_check]) }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <button class="btn btn-danger py-2 px-5 fw-bold">Rifiuta</button>
                         </form>
                     </div>
                 </div>

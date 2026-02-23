@@ -4,7 +4,7 @@ namespace App\Jobs;
 
 use App\Models\Image;
 use Spatie\Image\Image as SpatieImage;
-use Google\Cloud\Vision\V1\Client\ImageAnnotatorClient;
+use Google\Cloud\Vision\V1\ImageAnnotatorClient;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Foundation\Queue\Queueable;

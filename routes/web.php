@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\RevisorController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
@@ -10,6 +11,11 @@ Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create')->middleware('auth');
 Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');
 Route::get('/article/show/{article}', [ArticleController::class, 'show'])->name('article.show');
+// Rotta per mostrare il form di modifica
+Route::get('/article/edit/{article}', [ArticleController::class, 'edit'])->name('article.edit')->middleware('auth');
+// Rotta per gestire l'eliminazione
+Route::delete('/article/destroy/{article}', [ArticleController::class, 'destroy'])->name('article.destroy')->middleware('auth');
+
 Route::get('/category/{category}', [ArticleController::class, 'byCategory'])->name('byCategory');
 
 // Area revisore
@@ -27,3 +33,6 @@ Route::get('/search/article', [PublicController::class, 'searchArticles'])->name
 
 // Rotta per il cambio della lingua
 Route::post('/lingua/{lang}', [PublicController::class, 'setLanguage'])->name('setLocale');
+
+// Rotta Dashboard Utente
+Route::get('/user/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard')->middleware('auth');
