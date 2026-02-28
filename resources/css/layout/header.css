@@ -1,0 +1,6 @@
+.page-header {
+    background-color: var(--dark-obsidian);
+    min-height: 230px;
+    margin-top: 120px;
+    border-bottom: 1px solid rgba(104, 184, 0, 0.2);
+}

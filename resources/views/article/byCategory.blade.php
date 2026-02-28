@@ -1,67 +1,64 @@
-{{-- <x-layout>
-
-    <div class="container">
-        <div class="row justify-content-center align-items-center py-5 text-center">
-            <div class="col-12 pt-5">
-                <h1 class="display-4">{{ __('ui.byCategory_h1') }}<span
-                        class="fst-italic fw-bold">{{ __('ui.' . $category->name) }}</span></h1>
-            </div>
-        </div>
-        <div class="row height-custom justify-content-center align-items-center py-5">
-            @forelse ($articles as $article)
-                <div class="col-12 col-md-4 my-5">
-                    <x-card :article="$article" />
-                </div>
-            @empty
-                <div class="col-12 text-center">
-                    <h3>{{ __('ui.noArticle') }}</h3>
-                    @auth
-                        <a href="{{ route('article.create') }}" class="btn btn-dark my-5">{{ __('ui.publishArticle') }}</a>
-                    @endauth
-                </div>
-            @endforelse
-        </div>
-    </div>
-
-</x-layout> --}}
-
 <x-layout>
-    <div class="container-fluid bg-light py-5 mb-5 shadow-sm">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 col-md-8 text-center text-md-start">
-                    <h1 class="display-5 fw-bold text-dark">
-                        {{ __('ui.byCategory_h1') }}
-                        <span class="text-primary text-uppercase">{{ __('ui.' . $category->name) }}</span>
-                    </h1>
-                    <p class="lead text-muted">Esplora tutti gli annunci nella categoria
-                        {{ __('ui.' . $category->name) }}</p>
-                </div>
-                <div class="col-12 col-md-4 text-center text-md-end">
-                    <span class="badge bg-primary fs-5 px-4 py-2">{{ $articles->count() }} Annunci</span>
+    <div class="container-fluid page-header">
+        <div class="row px-3 px-md-5 mb-5">
+            <div class="col-12 col-md-8 text-center text-md-start">
+
+                <h1 class="display-5 fw-bold tech-glow-text text-uppercase mb-0">
+                    {{ __('ui.byCategory_h1') }}
+                    <br>
+                    <span class="text-neon">{{ __('ui.' . $category->name) }}</span>
+                </h1>
+
+                <div class="title-underline-neon mt-3 ms-5 ms-md-0"></div>
+            </div>
+
+            <div class="col-12 col-md-4 text-center text-md-end my-5 mt-md-0">
+                <div class="tech-stat-box d-inline-block px-4 py-2">
+                    <span class="text-neon fw-bold font-monospace fs-5">
+                        {{ $articles->count() }} <span class="small opacity-75">FILES_DETECTED</span>
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container mb-5">
-        <div class="row justify-content-center">
+    <div class="container my-5">
+        <div class="row mb-5">
+            <div class="col-12">
+                <a href="{{ route('article.index') }}" class="link-cyber-scanner">
+                    <i class="bi bi-chevron-double-left me-2 scanner-icon"></i>
+                    <span class="scanner-text text-uppercase fw-bold" style="letter-spacing: 2px;">
+                        {{ __('ui.allArticles') }}
+                    </span>
+                    <span class="scanner-line"></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="row justify-content-center g-4">
             @forelse ($articles as $article)
                 <div class="col-12 col-md-6 col-lg-4 mb-4">
                     <x-card :article="$article" />
                 </div>
             @empty
                 <div class="col-12 text-center py-5">
-                    <div class="mb-4">
-                        <i class="bi bi-tags display-1 text-muted"></i>
+                    <div class="badge-dashed p-5">
+                        <div class="mb-4">
+                            <i class="bi bi-exclamation-triangle display-1 text-neon"></i>
+                        </div>
+                        <h3 class="text-white text-uppercase fw-light mb-4" style="letter-spacing: 4px;">
+                            {{ __('ui.noArticleByCategory') }}
+                        </h3>
+
+                        @auth
+                            <a href="{{ route('article.create') }}" class="btn-cyber-large px-5">
+                                <span class="btn-text">
+                                    {{ __('ui.createArticle') }}</span>
+                            </a>
+                        @else
+                            <p class="text-secondary font-monospace mt-3">Access_Denied: No_Data_Found</p>
+                        @endauth
                     </div>
-                    <h3 class="fw-light">{{ __('ui.noArticle') }}</h3>
-                    @auth
-                        <p class="text-muted">Vuoi essere il primo?</p>
-                        <a href="{{ route('article.create') }}" class="btn btn-primary btn-lg px-5 shadow">
-                            <i class="bi bi-plus-circle me-2"></i>{{ __('ui.publishArticle') }}
-                        </a>
-                    @endauth
                 </div>
             @endforelse
         </div>

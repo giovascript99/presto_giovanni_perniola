@@ -1,48 +1,28 @@
-{{-- <x-layout>
-
-    <div class="container-fluid">
-        <div class="row height-custom justify-content-center align-items-center text-center">
-            <div class="col-12">
-                <h1 class="display-1">Tutti gli articoli</h1>
-            </div>
-        </div>
-        <div class="row height-custom justify-content-center align-items-center py-5">
-            @forelse ($articles as $article)
-                <div class="col-12 col-md-4 my-5">
-                    <x-card :article="$article" />
-                </div>
-            @empty
-                <div class="col-12">
-                    <h3 class="text-center">
-                        Non sono ancora stati creati articoli
-                    </h3>
-                </div>
-            @endforelse
-        </div>
-    </div>
-    <div class="d-flex justify-content-center">
-        <div>
-            {{ $articles->links() }}
-        </div>
-    </div>
-
-</x-layout> --}}
-
 <x-layout>
+    <div class="container-fluid page-header">
+        <div class="row px-3 px-md-5">
+            <div class="col-12 col-md-8 text-center text-sm-start">
 
-    {{-- Header della pagina più compatto --}}
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-12 text-center mb-4">
-                <h1 class="display-4 fw-bold">Esplora i nostri annunci</h1>
-                <p class="text-muted">Trovati {{ $articles->total() }} articoli disponibili</p>
-                <hr class="w-25 mx-auto">
+                <h1 class="display-4 fw-bold tech-glow-text text-uppercase mb-0">
+                    {{ __('ui.exploreArticle') }}
+                </h1>
+
+                <div class="title-underline-neon mt-3 ms-5 ms-md-0"></div>
+            </div>
+            <div class="col-12 col-md-4 text-center text-md-end my-5 mt-md-0">
+                <div class="tech-stat-box d-inline-block px-4 py-2 position-relative">
+                    <span class="text-neon font-monospace fs-5">
+                        {{ $articles->total() }}
+                        <span class="small opacity-75">FILES_DETECTED</span>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="container my-5">
-        <div class="row">
+        
+        <div class="row g-4">
             {{-- Griglia articoli --}}
             @forelse ($articles as $article)
                 <div class="col-12 col-md-6 col-lg-4 mb-4">
@@ -50,21 +30,27 @@
                 </div>
             @empty
                 <div class="col-12 text-center py-5">
-                    <div class="mb-3">
-                        <i class="bi bi-search display-1 text-muted"></i>
+                    <div class="badge-dashed p-5">
+                        <div class="mb-4">
+                            <i class="bi bi-terminal-x display-1 text-neon"></i>
+                        </div>
+                        <h3 class="text-white text-uppercase fw-light mb-4" style="letter-spacing: 4px;">
+                            {{ __('ui.noArticlesIndex') }}
+                        </h3>
+                        <a href="{{ route('article.create') }}" class="btn-cyber-large text-decoration-none">
+                            <span class="btn-text">{{ __('ui.createArticle') }}</span>
+                        </a>
+                        <p class="text-secondary mt-4 small font-monospace">Error_Code: NULL_DATA_RETURNED</p>
                     </div>
-                    <h3 class="text-muted">Ops! Non ci sono ancora articoli in questa sezione.</h3>
-                    <a href="{{ route('article.create') }}" class="btn btn-primary mt-3">Sii il primo a pubblicare!</a>
                 </div>
             @endforelse
         </div>
 
-        {{-- Paginazione stilizzata --}}
+        {{-- Pagination: Coerente con i toni scuri --}}
         <div class="row mt-5">
-            <div class="col-12 d-flex justify-content-center pagination-custom">
+            <div class="col-12 d-flex justify-content-center pagination-cyber">
                 {{ $articles->links() }}
             </div>
         </div>
     </div>
-
 </x-layout>

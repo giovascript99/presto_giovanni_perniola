@@ -23,7 +23,7 @@ class RevisorController extends Controller
         $article->setAccepted(true);
         return redirect()
             ->back()
-            ->with('message', "Hai accettato l'articolo $article->title");
+            ->with('acceptedMessage', __('ui.acceptedMessage', ['title' => $article->title]));
     }
 
     public function reject(Article $article)
@@ -31,18 +31,18 @@ class RevisorController extends Controller
         $article->setAccepted(false);
         return redirect()
             ->back()
-            ->with('message', "Hai rifiutato l'articolo $article->title");
+            ->with('rejectedMessage', __('ui.rejectedMessage', ['title' => $article->title]));
     }
 
     public function becomeRevisor()
     {
         Mail::to('admin@presto.it')->send(new BecomeRevisor(Auth::user()));
-        return redirect()->route('homepage')->with('message', 'Complimenti, hai richiesto di diventare revisor');
+        return redirect()->route('homepage')->with('message', __('ui.becomeRevisorRequest'));
     }
 
     public function makeRevisor(User $user)
     {
         Artisan::call('app:make-user-revisor', ['email' => $user->email]);
-        return redirect()->back();
+        return redirect()->route('homepage')->with('message', "L'utente {$user->name} è ora un revisore!");
     }
 }

@@ -1,0 +1,98 @@
+.tech-table-wrapper {
+    background: var(--dark-obsidian);
+    border: 1px solid rgba(104, 184, 0, 0.2);
+}
+
+.tech-dark-table {
+    background: transparent !important;
+    color: #fff !important;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.tech-dark-table thead {
+    background: rgba(104, 184, 0, 0.05);
+}
+
+.tech-dark-table th {
+    color: var(--green) !important;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    padding: 15px !important;
+    border: none !important;
+}
+
+/* Righe & Celle */
+.tech-row {
+    border-bottom: 1px solid rgba(104, 184, 0, 0.05) !important;
+    transition: 0.2s;
+}
+
+.tech-row:hover {
+    background: rgba(104, 184, 0, 0.03) !important;
+}
+
+.table> :not(caption)>*>* {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.table{
+    --bs-table-border-color: none;
+}
+
+/* Asset Visuali (Miniature) */
+.img-thumb-cyber-table {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid var(--green);
+    clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
+}
+
+/* Badge Stato */
+.badge-status-cyber {
+    padding: 3px 10px;
+    font-size: 0.6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 1px solid;
+}
+
+.b-ok {
+    color: var(--green);
+    border-color: var(--green);
+    background: rgba(104, 184, 0, 0.1);
+}
+
+.b-warn {
+    color: #ffc107;
+    border-color: #ffc107;
+    background: rgba(255, 193, 7, 0.1);
+}
+
+.b-err {
+    color: #ff3e3e;
+    border-color: #ff3e3e;
+    background: rgba(255, 62, 62, 0.1);
+}
+
+/* Azioni modifica/elimina */
+.action-link-cyber {
+    color: var(--green);
+    background: none;
+    border: none;
+    transition: 0.2s;
+}
+
+.action-link-cyber:hover {
+    color: white;
+    text-shadow: 0 0 8px var(--green);
+}
+
+.del-link:hover {
+    color: #ff3e3e;
+    text-shadow: 0 0 8px #ff3e3e;
+}

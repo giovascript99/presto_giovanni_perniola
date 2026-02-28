@@ -1,0 +1,71 @@
+/* Struttura */
+.tech-form-card {
+    background: rgba(10, 10, 15, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+}
+
+.tech-label-neon {
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tech-input-group {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(104, 184, 0, 0.2);
+}
+
+.tech-input-icon {
+    background: transparent;
+    border: none;
+    color: var(--green);
+}
+
+.tech-input {
+    background-color: rgba(50, 50, 55, 0.9);
+    border: 1px solid rgba(104, 184, 0, 0.3);
+    color: var(--white);
+    padding: 12px 15px;
+}
+
+.tech-input:focus {
+    outline: none;
+    box-shadow: 0 0 12px rgba(104, 184, 0, 0.4);
+    border-color: var(--green);
+    background-color: rgba(70, 70, 75, 1);
+    color: white;
+}
+
+.tech-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+.tech-preview-box {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px dashed var(--green);
+    border-radius: 4px;
+}
+
+.img-preview {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid var(--green);
+    display: block;
+    clip-path: polygon(10% 0, 100% 0, 100% 85%, 90% 100%, 0 100%, 0 15%);
+}
+
+/* Livewire errors */
+.tech-error-text {
+    color: #ff2d2d;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-shadow: 0 0 10px rgba(255, 45, 45, 0.5), 0 0 2px rgba(255, 255, 255, 0.3);
+    display: block;
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

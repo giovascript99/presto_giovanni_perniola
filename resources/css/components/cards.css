@@ -1,0 +1,26 @@
+.cyber-card-img {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+.bg-obsidian-card {
+    background: rgba(20, 20, 25, 0.95);
+    border-top: 2px solid var(--green);
+    z-index: 5;
+}
+
+.tech-form-card:hover .cyber-card-img {
+    transform: scale(1.05);
+}
+
+/* Decorazione "Scanner" in fondo alla card */
+.card-footer-tech {
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, var(--green), transparent);
+    position: absolute;
+    bottom: 0;
+    opacity: 0.3;
+}

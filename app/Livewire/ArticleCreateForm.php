@@ -17,21 +17,43 @@ class ArticleCreateForm extends Component
 {
     use WithFileUploads;
 
-    #[Validate('required', message: 'Il titolo è obbligatorio.')]
-    #[Validate('min:5', message: 'Il titolo è troppo corto.')]
+    #[Validate('required')]
+    #[Validate('min:5')]
     public $title;
-    #[Validate('required', message: 'La descrizione è obbligatoria.')]
-    #[Validate('min:10', message: 'La descrizione è troppo corta.')]
+
+    #[Validate('required')]
+    #[Validate('min:10')]
     public $description;
-    #[Validate('required', message: 'Il prezzo è obbligatorio.')]
-    #[Validate('numeric', message: 'Il prezzo deve essere un numero.')]
+
+    #[Validate('required')]
+    #[Validate('numeric')]
     public $price;
-    #[Validate('required', message: 'La categoria è obbligatoria.')]
+
+    #[Validate('required')]
     public $category_id;
+
     public $article;
 
     public $images = [];
+
     public $temporary_images;
+
+    // Metodo per messaggi di errore dinamici
+    protected function messages()
+    {
+        return [
+            'title.required' => __('ui.titleRequired'),
+            'title.min' => __('ui.titleMin'),
+            'description.required' => __('ui.descriptionRequired'),
+            'description.min' => __('ui.descriptionMin'),
+            'price.required' => __('ui.priceRequired'),
+            'price.numeric' => __('ui.priceNumeric'),
+            'category_id.required' => __('ui.categoryRequired'),
+            'temporary_images.*.image' => __('ui.errorImage'),
+            'temporary_images.*.max' => __('ui.errorMax2mb'),
+            'temporary_images.max' => __('ui.errorMax6Images'),
+        ];
+    }
 
     public function updatedTemporaryImages()
     {
@@ -71,7 +93,7 @@ class ArticleCreateForm extends Component
                 // dispatch(new GoogleVisionSafeSearch($newImage->id));
                 // dispatch(new GoogleVisionLabelImage($newImage->id));
                 RemoveFaces::withChain([
-                    new ResizeImage($newImage->path, 300, 300),
+                    new ResizeImage($newImage->path, 600, 600),
                     new GoogleVisionSafeSearch($newImage->id),
                     new GoogleVisionLabelImage($newImage->id)
                 ])->dispatch($newImage->id);
@@ -79,7 +101,7 @@ class ArticleCreateForm extends Component
             File::deleteDirectory(storage_path('/app/livewire-tmp'));
         }
 
-        session()->flash('success', 'Articolo creato correttamente');
+        session()->flash('success', __('ui.articleCreated'));
         $this->reset();
     }
 

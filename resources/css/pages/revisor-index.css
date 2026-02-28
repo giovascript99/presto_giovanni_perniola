@@ -1,0 +1,49 @@
+/* Bottone ACCETTA - Verde Neon */
+.btn-cyber-accept {
+    background: transparent;
+    border: 1px solid var(--green);
+    color: var(--green);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-cyber-accept:hover {
+    background: var(--green);
+    color: var(--dark-obsidian); /* Testo nero su sfondo verde per leggibilità */
+    box-shadow: 0 0 20px var(--green);
+}
+
+/* Bottone RIFIUTA - Rosso Neon */
+.btn-cyber-reject {
+    background: transparent;
+    border: 1px solid #ff3e3e;
+    color: #ff3e3e;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-cyber-reject:hover {
+    background: #ff3e3e;
+    color: #fff;
+    box-shadow: 0 0 20px #ff3e3e;
+}
+
+.safety-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+}
+
+/* Scrollbar personalizzata per la descrizione */
+.bg-dark p::-webkit-scrollbar {
+    width: 5px;
+}
+.bg-dark p::-webkit-scrollbar-thumb {
+    background: var(--green);
+}

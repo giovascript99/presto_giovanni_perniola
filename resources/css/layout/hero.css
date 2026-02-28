@@ -1,0 +1,81 @@
+.hero-section {
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(11, 14, 20, 0.6) 0%, var(--dark-obsidian) 100%),
+        url('../img/header-background.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 50vh;
+    border-bottom: 1px solid rgba(104, 184, 0, 0.2);
+}
+
+
+/* Effetto Scanline (linee orizzontali stile vecchio monitor) */
+.scanline {
+    width: 100%;
+    height: 100px;
+    z-index: 1;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(104, 184, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0.1;
+    position: absolute;
+    bottom: 100%;
+    animation: scanline 9s linear infinite;
+}
+
+@keyframes scanline {
+    0% {
+        bottom: 100%;
+    }
+
+    100% {
+        bottom: -100%;
+    }
+}
+
+.tech-glow-text {
+    letter-spacing: 8px;
+    text-shadow: 0 0 15px rgba(104, 184, 0, 0.5);
+}
+
+.tech-subtitle {
+    color: var(--white);
+    font-size: 1rem;
+    text-transform: uppercase;
+    /* Spaziatura larga per un look moderno */
+    letter-spacing: 7px;
+    font-weight: 300;
+    opacity: 0.8;
+    position: relative;
+    display: inline-block;
+}
+
+/* Piccolo cursore che pulsa alla fine del sottotitolo */
+.tech-subtitle::after {
+    content: "_";
+    animation: blink 1s infinite;
+    color: var(--green);
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.tech-divider {
+    height: 1px;
+    width: 100%;
+    background: var(--green);
+    box-shadow: 0 0 15px var(--green), 0 0 5px white;
+    position: relative;
+    z-index: 10;
+}

@@ -1,0 +1,12 @@
+.tech-h2 {
+    color: var(--white);
+    letter-spacing: 3px;
+}
+
+.title-underline-neon {
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green), transparent);
+    margin-top: 8px;
+}
+

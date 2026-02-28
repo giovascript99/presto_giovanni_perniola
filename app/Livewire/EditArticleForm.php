@@ -9,17 +9,21 @@ use Livewire\Component;
 
 class EditArticleForm extends Component
 {
-    #[Validate('required', message: 'Il titolo è obbligatorio.')]
-    #[Validate('min:5', message: 'Il titolo è troppo corto.')]
+    #[Validate('required')]
+    #[Validate('min:5')]
     public $title;
-    #[Validate('required', message: 'La descrizione è obbligatoria.')]
-    #[Validate('min:10', message: 'La descrizione è troppo corta.')]
+
+    #[Validate('required')]
+    #[Validate('min:10')]
     public $description;
-    #[Validate('required', message: 'Il prezzo è obbligatorio.')]
-    #[Validate('numeric', message: 'Il prezzo deve essere un numero.')]
+
+    #[Validate('required')]
+    #[Validate('numeric')]
     public $price;
-    #[Validate('required', message: 'La categoria è obbligatoria.')]
+
+    #[Validate('required')]
     public $category_id;
+
     public $article;
 
     public function mount(Article $article)
@@ -29,6 +33,20 @@ class EditArticleForm extends Component
         $this->description = $article->description;
         $this->price = $article->price;
         $this->category_id = $article->category_id;
+    }
+
+    // Metodo per messaggi di errore dinamici
+    protected function messages()
+    {
+        return [
+            'title.required' => __('ui.titleRequired'),
+            'title.min' => __('ui.titleMin'),
+            'description.required' => __('ui.descriptionRequired'),
+            'description.min' => __('ui.descriptionMin'),
+            'price.required' => __('ui.priceRequired'),
+            'price.numeric' => __('ui.priceNumeric'),
+            'category_id.required' => __('ui.categoryRequired'),
+        ];
     }
 
     public function update()
@@ -43,7 +61,7 @@ class EditArticleForm extends Component
             'is_accepted' => null, // Torna in revisione!
         ]);
 
-        session()->flash('message', 'Articolo aggiornato con successo. È di nuovo in fase di revisione.');
+        session()->flash('message', __('ui.articleUpdated'));
         return redirect()->route('user.dashboard');
     }
 

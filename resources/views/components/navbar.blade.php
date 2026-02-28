@@ -1,25 +1,30 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-xxl fixed-top tech-nav">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Presto</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand fw-bold tech-logo" href="{{ route('homepage') }}">
+            CYBER<span class="text-neon">PRESTO</span>
+        </a>
+
+        <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav mx-auto">
+            <ul class="navbar-nav mx-auto align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ route('homepage') }}">Home</a>
+                    <a class="nav-link" href="{{ route('homepage') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page"
-                        href="{{ route('article.index') }}">{{ __('ui.articles') }}</a>
+                    <a class="nav-link" href="{{ route('article.index') }}">{{ __('ui.articles') }}</a>
                 </li>
+
                 <li class="nav-item dropdown">
-                    <a href="" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                    <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         {{ __('ui.categories') }}
                     </a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu tech-dropdown">
                         @foreach ($categories as $category)
                             <li>
                                 <a href="{{ route('byCategory', ['category' => $category]) }}"
@@ -27,69 +32,95 @@
                                     {{ __('ui.' . $category->name) }}
                                 </a>
                             </li>
-                            @if (!$loop->last)
-                                <hr class="dropdown-divider">
-                            @endif
                         @endforeach
                     </ul>
                 </li>
+
                 @auth
                     @if (Auth::user()->is_revisor)
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-outline-success btn-sm position-relative w-sm-25"
-                                href="{{ route('revisor.index') }}">{{ __('ui.reviewerArea') }}
-                                <span
-                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        <li class="nav-item mx-2 mt-3 mt-md-0">
+                            <a class="nav-link btn-revisor-glow position-relative" href="{{ route('revisor.index') }}">
+                                {{ __('ui.reviewerArea') }}
+                                <span class="badge-tech">
                                     {{ \App\Models\Article::toBeRevisedCount() }}
                                 </span>
                             </a>
                         </li>
                     @endif
+
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            {{ __('ui.hi') }}, {{ Auth::user()->name }}
+                        <a class="nav-link nav-link-custom dropdown-toggle user-glow" href="#" role="button"
+                            data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle me-1"></i> {{ Auth::user()->name }}
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu tech-dropdown">
                             <li><a class="dropdown-item"
                                     href="{{ route('article.create') }}">{{ __('ui.articleCreate') }}</a></li>
-                            <hr class="dropdown-divider">
-                            <li><a class="dropdown-item"
-                                    href="{{ route('user.dashboard') }}">User Dashboard</a></li>
-                            <hr class="dropdown-divider">
-                            <li><a class="dropdown-item" href="#"
-                                    onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">{{ __('ui.logout') }}</a>
+                            <li><a class="dropdown-item" href="{{ route('user.dashboard') }}">{{ __('ui.dashboard') }}</a>
                             </li>
-                            <form action="{{ route('logout') }}" method="POST" class="d-none" id="form-logout">@csrf
-                            </form>
+                            <li>
+                                <hr class="dropdown-divider border-secondary opacity-25">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"
+                                    onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">
+                                    {{ __('ui.logout') }}
+                                </a>
+                                <form action="{{ route('logout') }}" method="POST" id="form-logout" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
                         </ul>
                     </li>
                 @else
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            {{ __('ui.login') }}/{{ __('ui.register') }}
+                        <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            {{ __('ui.login') }} / {{ __('ui.register') }}
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
+                        <ul class="dropdown-menu tech-dropdown dropdown-menu-end">
                             <li><a class="dropdown-item" href="{{ route('login') }}">{{ __('ui.login') }}</a></li>
-                            <hr class="dropdown-divider">
                             <li><a class="dropdown-item" href="{{ route('register') }}">{{ __('ui.register') }}</a></li>
                         </ul>
                     </li>
                 @endauth
-                <form action="{{ route('article.search') }}" method="GET" role="search" class="d-flex ms-auto">
-                    <div class="input-group">
-                        <input type="search" name="query" class="form-control" placeholder="{{ __('ui.search') }}"
-                            aria-label="search">
-                        <button type="submit" class="input-group-text btn btn-outline-success" id="basic-addon2">
-                            {{ __('ui.search') }}
-                        </button>
-                    </div>
-                </form>
             </ul>
-            <x-_locale lang="it" />
-            <x-_locale lang="en" />
-            <x-_locale lang="es" />
+
+            <div class="row">
+                <div class="col-8">
+                    <form action="{{ route('article.search') }}" method="GET"
+                        class="d-flex mx-lg-3 mt-3 mt-lg-0 search-tech">
+                        <div class="input-group">
+                            <input type="search" name="query"
+                                class="form-control bg-dark border-secondary text-white"
+                                placeholder="{{ __('ui.search') }}">
+                            <button class="btn btn-outline-neon" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-3 mx-3 small">
+                    <div class="nav-item dropdown ms-lg-3 mt-3 mt-lg-0">
+                        <a class="nav-link nav-link-custom dropdown-toggle border border-secondary rounded py-2 px-2"
+                            href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-translate me-1"></i> {{ strtoupper(App::getLocale()) }}
+                        </a>
+                        <ul class="dropdown-menu tech-dropdown dropdown-menu-end">
+                            <li>
+                                <div class="dropdown-item p-0"><x-_locale lang="it" /></div>
+                            </li>
+                            <li>
+                                <div class="dropdown-item p-0"><x-_locale lang="en" /></div>
+                            </li>
+                            <li>
+                                <div class="dropdown-item p-0"><x-_locale lang="es" /></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </nav>

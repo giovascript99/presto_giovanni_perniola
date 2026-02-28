@@ -1,0 +1,13 @@
+.badge-dashed {
+    background: rgba(104, 184, 0, 0.05);
+    border: 1px dashed var(--green);
+    border-radius: 0;
+}
+
+.tech-stat-box {
+    background: rgba(104, 184, 0, 0.1);
+    border-left: 4px solid var(--green);
+    border-right: 1px solid rgba(104, 184, 0, 0.3);
+    border-top: 1px solid rgba(104, 184, 0, 0.3);
+    border-bottom: 1px solid rgba(104, 184, 0, 0.3);
+}

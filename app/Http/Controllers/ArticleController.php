@@ -34,11 +34,10 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         if (Auth::id() !== $article->user_id) {
-            return redirect()->back()->with('error', 'Non sei autorizzato a compiere questa azione.');
+            return redirect()->back()->with('error', __('ui.unauthorized'));
         }
 
         // 1. Definiamo il percorso della cartella dell'articolo
-        // Se le tue foto sono in 'public/articles/ID_ARTICOLO/...'
         $directory = "articles/{$article->id}";
 
         // 2. Cancellazione Immagini Fisiche
@@ -50,7 +49,7 @@ class ArticleController extends Controller
         // 3. Cancelliamo i record dal database
         $article->delete();
 
-        return redirect()->route('user.dashboard')->with('message', 'Articolo eliminato definitivamente.');
+        return redirect()->route('user.dashboard')->with('message', __('ui.articleDeleted'));
     }
 
     public function byCategory(Category $category)

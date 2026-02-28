@@ -1,0 +1,72 @@
+/* Link che scivola a destra */
+.link-neon-sliding {
+    color: var(--green);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.link-neon-sliding:hover {
+    color: var(--light-green);
+    text-shadow: 0 0 12px var(--green);
+    transform: translateX(4px);
+}
+
+.link-cyber-scanner {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--green);
+    position: relative;
+    padding: 5px 0;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* La linea che appare sotto il testo */
+.scanner-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: var(--green);
+    box-shadow: 0 0 10px var(--green);
+    transition: all 0.4s ease;
+}
+
+/* Animazione al passaggio del mouse */
+.link-cyber-scanner:hover .scanner-line {
+    width: 100%;
+}
+
+.link-cyber-scanner:hover .scanner-text {
+    text-shadow: 0 0 12px var(--green);
+    transform: translateX(-5px);
+}
+
+.link-cyber-scanner:hover .scanner-icon {
+    transform: translateX(5px);
+    filter: drop-shadow(0 0 5px var(--green));
+}
+
+.scanner-text {
+    letter-spacing: 3px;
+    transition: all 0.4s ease;
+}
+
+.scanner-icon {
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+}
+
+/* Variante per il link di ritorno (Scanner a sinistra) */
+.link-cyber-scanner .bi-chevron-double-left {
+    transition: transform 0.4s ease;
+}
+
+.link-cyber-scanner:hover .bi-chevron-double-left {
+    transform: translateX(-8px);
+    /* Sposta l'icona verso sinistra al passaggio */
+    color: var(--light-green);
+}

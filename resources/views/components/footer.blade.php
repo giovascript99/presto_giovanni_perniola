@@ -1,44 +1,47 @@
-<footer class="bg-body-secondary text-center">
-    <div class="col-md-12 py-5 text-center">
-        <h5>{{__('ui.revisorRequestTitle')}}</h5>
-        <p>{{__('ui.revisorRequestSubtitle')}}</p>
-        <a href="{{ route('become.revisor') }}" class="btn btn-success">{{__('ui.revisorButton')}}</a>
+<footer class="tech-footer text-white pt-5">
+    <div class="container">
+        <div class="row align-items-center mb-5">
+            <div class="col-md-8 text-center text-md-start mb-4 mb-md-0">
+                <h5 class="fw-bold text-uppercase mb-3 tech-footer-title">
+                    {{ __('ui.revisorRequestTitle') }}
+                    </h1>
+                    <p class="small text-secondary opacity-75 mb-4">{{ __('ui.revisorRequestSubtitle') }}</p>
+
+                    <a href="{{ route('become.revisor') }}" class="btn-cyber-small">
+                        {{ __('ui.revisorButton') }}
+                    </a>
+            </div>
+
+            <div class="col-md-4 text-center text-md-end">
+                <p class="small text-uppercase mb-4 fw-light text-neon" style="letter-spacing: 3px;">System_Connect</p>
+                <div class="d-flex justify-content-center justify-content-md-end gap-3">
+                    <a href="#!" class="social-icon-tech"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#!" class="social-icon-tech"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#!" class="social-icon-tech"><i class="fab fa-instagram"></i></a>
+                    <a href="#!" class="social-icon-tech"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="row py-4 align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-0 small text-secondary fw-light">
+                    © 2024 <span class="fw-bold text-white">CYBER<span class="text-neon">PRESTO</span></span> -
+                    [LOG_OFF_SECURE]
+                </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <ul class="list-inline mb-0 small mt-3 mt-md-0">
+                    <li class="list-inline-item">
+                        <a href="#" class="footer-link-secondary">Privacy Policy</a>
+                    </li>
+                    <li class="list-inline-item ms-3">
+                        <a href="#" class="footer-link-secondary">Terms of Service</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <!-- Grid container -->
-    <div class="container p-4 pb-0">
-        <!-- Section: Social media -->
-        <section class="mb-4">
-            <!-- Facebook -->
-            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #3b5998;"
-                href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
-
-            <!-- Twitter -->
-            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #55acee;"
-                href="#!" role="button"><i class="fab fa-x-twitter"></i></a>
-
-            <!-- Google -->
-            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #dd4b39;"
-                href="#!" role="button"><i class="fab fa-google"></i></a>
-
-            <!-- Instagram -->
-            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac;"
-                href="#!" role="button"><i class="fab fa-instagram"></i></a>
-
-            <!-- Linkedin -->
-            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #0082ca;"
-                href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
-            <!-- Github -->
-            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #333333;"
-                href="#!" role="button"><i class="fab fa-github"></i></a>
-        </section>
-        <!-- Section: Social media -->
-    </div>
-    <!-- Grid container -->
-
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-        © 2020 Copyright:
-        <a class="text-body" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-    </div>
-    <!-- Copyright -->
 </footer>

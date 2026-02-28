@@ -1,29 +1,42 @@
 <x-layout>
-    <div class="container-fluid">
-        <div class="row py-5 justify-content-center align-items-center text-center">
-            <div class="col-12">
-                <h1 class="display-1">
-                    Risultati per la ricerca "<span class="fst-italic">{{ $query }}</span>"
+    <div class="container-fluid page-header">
+        <div class="row px-3 px-md-5">
+            <div class="col-12 text-center text-md-start">
+                
+                <h1 class="display-4 fw-bold tech-glow-text text-uppercase mb-0">
+                    {{ __('ui.searchResult') }}:
+                    <span class="text-neon fst-italic">"{{ $query }}"</span>
                 </h1>
+
+                <div class="title-underline-neon ms-5 ms-md-0"></div>
             </div>
         </div>
-        <div class="row height-custom justify-content-center align-items-center py-5">
+    </div>
+    <div class="container my-5">
+        {{-- Griglia Articoli --}}
+        <div class="row g-4 justify-content-start">
             @forelse ($articles as $article)
-                <div class="col-12 col-md-3">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex align-items-stretch">
                     <x-card :article="$article" />
                 </div>
             @empty
-                <div class="col-12">
-                    <h3 class="text-center">
-                        Nessun articolo corrisponde alla tua ricerca
-                    </h3>
+                <div class="col-12 text-center py-5 badge-dashed">
+                    <div class="py-5">
+                        <i class="bi bi-database-exclamation text-neon display-1 mb-4 d-block"></i>
+                        <h3 class="text-white font-monospace text-uppercase fw-bold">
+                            {{ __('ui.articleMatch') }}
+                        </h3>
+                        <p class="text-secondary small mb-4">NESSUN DATO TROVATO PER LA STRINGA:
+                            "{{ $query }}"</p>
+                        <div class="mt-4">
+                            <a href="{{ route('article.index') }}"
+                                class="btn-cyber-small py-2 px-4 text-decoration-none">
+                                <i class="bi bi-arrow-left me-2"></i> {{ __('ui.allArticles') }}
+                            </a>
+                        </div>
+                    </div>
                 </div>
             @endforelse
-        </div>
-    </div>
-    <div class="d-flex justify-content-center">
-        <div>
-            {{ $articles->links() }}
         </div>
     </div>
 </x-layout>
