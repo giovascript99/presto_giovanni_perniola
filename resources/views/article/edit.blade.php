@@ -1,21 +1,16 @@
 <x-layout>
-    <div class="container-fluid min-vh-100 tech-main-section py-5" style="padding-top: 100px !important;">
-        <div class="container">
+    <div class="container-fluid  min-vh-100 d-flex justify-content-center mb-5 page-header border-bottom-0 pb-5">
+        <div class="col-12 col-md-10 col-lg-6">
 
-            <div class="row mb-5 justify-content-center">
-                <div
-                    class="col-12 col-md-10 d-flex justify-content-between align-items-end border-bottom border-success border-opacity-25 pb-3">
-                    <div>
-                        <h2 class="tech-h2 fw-bold text-uppercase mb-0 tech-glow-text">
-                            {{ __('ui.editArticle') }}: <span class="text-neon">{{ $article->title }}</span>
-                        </h2>
-                    </div>
-                </div>
+            <div class="text-center mb-5 mt-4">
+                <h2 class="display-4 fw-bold text-white text-uppercase tech-glow-text mb-2">
+                    {{ __('ui.editArticle') }}: <span class="text-neon">{{ $article->title }}</span>
+                </h1>
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-12 col-md-10 col-lg-8">
-                        <livewire:edit-article-form :article="$article" />
+                <div class="col-12 col-md-10">
+                    <livewire:edit-article-form :article="$article" />
                 </div>
             </div>
         </div>

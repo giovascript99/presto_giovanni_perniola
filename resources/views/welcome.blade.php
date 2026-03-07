@@ -25,7 +25,7 @@
                 @auth
                     <div class="hero-action-area">
                         <a href="{{ route('article.create') }}" class="btn-cyber-large">
-                            <span class="btn-text">{{ __('ui.createArticle') }}</span>
+                            <span>{{ __('ui.createArticle') }}</span>
                             <span class="btn-glitch"></span>
                             <i class="bi bi-plus-lg ms-2"></i>
                         </a>
@@ -37,7 +37,7 @@
         <div class="scanline"></div>
     </header>
 
-    <main class="py-5 tech-main-section">
+    <main class="py-5">
         <div class="container">
             <div class="row mb-5 align-items-center">
                 <div class="col-md-8 text-start">

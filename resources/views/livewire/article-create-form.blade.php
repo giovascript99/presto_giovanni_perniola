@@ -1,4 +1,4 @@
-<form wire:submit="store" class="tech-form-card p-4 p-md-5 position-relative shadow-lg">
+<form wire:submit="store" class="tech-form-card p-4 p-md-5 position-relative rounded-4">
     <div class="card-corner-top"></div>
 
     @if (session()->has('success'))
@@ -25,7 +25,7 @@
                 {{ __('ui.photoPreview') }}</p>
             <div class="row g-3">
                 @foreach ($images as $key => $image)
-                    <div class="col-12 col-md-6 col-lg-4 position-relative">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 position-relative">
                         <div class="img-preview border-neon shadow-sm"
                             style="background-image: url({{ $image->temporaryUrl() }});">
                         </div>
@@ -53,7 +53,7 @@
         <div class="col-md-4">
             <label class="tech-label-neon small mb-2">{{ __('ui.price') }}</label>
             <div class="tech-input-group">
-                <input type="number" class="form-control tech-input text-success" wire:model.blur="price"
+                <input type="number" class="form-control tech-input" wire:model.blur="price"
                     placeholder="00.00">
             </div>
             @error('price')
@@ -91,7 +91,7 @@
 
     <div class="pt-3">
         <button type="submit" class="btn-cyber-large w-100 py-3">
-            <span class="btn-text text-uppercase fw-bold" style="letter-spacing: 3px;">{{ __('ui.btnCreate') }}</span>
+            <span class="text-uppercase fw-bold" style="letter-spacing: 3px;">{{ __('ui.btnCreate') }}</span>
         </button>
     </div>
 

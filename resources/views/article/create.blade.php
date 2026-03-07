@@ -3,12 +3,9 @@
         <div class="col-12 col-md-10 col-lg-6">
 
             <div class="text-center mb-5 mt-4">
-                <h1 class="display-4 fw-bold text-white text-uppercase tech-glow-text mb-2">
-                        {{ __('ui.createArticle') }}
-                </h1>
-                <div class="d-flex justify-content-center">
-                    <div class="title-underline-neon"></div>
-                </div>
+                <h2 class="display-4 fw-bold text-white text-uppercase tech-glow-text mb-2">
+                    {{ __('ui.createArticle') }}
+                </h2>
             </div>
 
             <livewire:article-create-form />

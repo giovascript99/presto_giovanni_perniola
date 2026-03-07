@@ -1,4 +1,4 @@
-<form wire:submit.prevent="update" class="tech-form-card p-4 p-md-5 position-relative shadow-lg">
+<form wire:submit.prevent="update" class="tech-form-card p-4 p-md-5 position-relative shadow-lg rounded-4">
     <div class="card-corner-top"></div>
 
     @if (session()->has('message'))
@@ -23,7 +23,7 @@
             <label class="tech-label-neon small mb-2 text-uppercase">{{ __('ui.price') }}</label>
             <div class="tech-input-group">
                 <input type="number" step="0.01"
-                    class="form-control tech-input text-success @error('price') is-invalid @enderror"
+                    class="form-control tech-input @error('price') is-invalid @enderror"
                     wire:model.blur="price" placeholder="00.00">
             </div>
             @error('price')
@@ -63,7 +63,7 @@
     {{-- Bottone di Invio --}}
     <div class="pt-3">
         <button type="submit" class="btn-cyber-large w-100 py-3">
-            <span class="btn-text text-uppercase fw-bold" style="letter-spacing: 3px;">
+            <span class="text-uppercase fw-bold" style="letter-spacing: 3px;">
                 <i class="bi bi-cloud-arrow-up me-2"></i> {{ __('ui.saveAndSend') }}
             </span>
         </button>

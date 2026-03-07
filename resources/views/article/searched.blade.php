@@ -1,6 +1,6 @@
 <x-layout>
-    <div class="container-fluid page-header">
-        <div class="row px-3 px-md-5">
+    <div class="container page-header">
+        <div class="row">
             <div class="col-12 text-center text-md-start">
                 
                 <h1 class="display-4 fw-bold tech-glow-text text-uppercase mb-0">
@@ -23,7 +23,7 @@
                 <div class="col-12 text-center py-5 badge-dashed">
                     <div class="py-5">
                         <i class="bi bi-database-exclamation text-neon display-1 mb-4 d-block"></i>
-                        <h3 class="text-white font-monospace text-uppercase fw-bold">
+                        <h3 class="text-white text-uppercase fw-bold">
                             {{ __('ui.articleMatch') }}
                         </h3>
                         <p class="text-secondary small mb-4">NESSUN DATO TROVATO PER LA STRINGA:

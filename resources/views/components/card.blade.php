@@ -1,5 +1,5 @@
 <div
-    class="card tech-form-card h-100 border-0 shadow-lg position-relative overflow-hidden animate__animated animate__fadeIn">
+    class="card tech-form-card h-100 border-0 shadow-lg position-relative overflow-hidden">
     <div class="card-corner-top"></div>
 
     <div class="position-relative">
@@ -12,7 +12,7 @@
             {{ $article->title }}
         </h5>
 
-        <p class="card-text text-neon h4 font-monospace mb-3">
+        <p class="card-text text-neon h4 mb-3">
             € {{ number_format($article->price, 2, ',', '.') }}
         </p>
 
@@ -23,7 +23,7 @@
             </a>
 
             <a href="{{ route('byCategory', $article->category) }}"
-                class="link-neon-sliding small opacity-75 font-monospace text-uppercase">
+                class="link-neon-sliding small opacity-75 text-uppercase">
                 #{{ __('ui.' . $article->category->name) }}
             </a>
         </div>

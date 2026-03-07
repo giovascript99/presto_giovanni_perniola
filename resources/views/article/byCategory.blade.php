@@ -1,6 +1,6 @@
 <x-layout>
-    <div class="container-fluid page-header">
-        <div class="row px-3 px-md-5 mb-5">
+    <div class="container page-header">
+        <div class="row mb-5">
             <div class="col-12 col-md-8 text-center text-md-start">
 
                 <h1 class="display-5 fw-bold tech-glow-text text-uppercase mb-0">
@@ -14,7 +14,7 @@
 
             <div class="col-12 col-md-4 text-center text-md-end my-5 mt-md-0">
                 <div class="tech-stat-box d-inline-block px-4 py-2">
-                    <span class="text-neon fw-bold font-monospace fs-5">
+                    <span class="text-neon fw-bold fs-5">
                         {{ $articles->count() }} <span class="small opacity-75">FILES_DETECTED</span>
                     </span>
                 </div>
@@ -52,11 +52,11 @@
 
                         @auth
                             <a href="{{ route('article.create') }}" class="btn-cyber-large px-5">
-                                <span class="btn-text">
+                                <span>
                                     {{ __('ui.createArticle') }}</span>
                             </a>
                         @else
-                            <p class="text-secondary font-monospace mt-3">Access_Denied: No_Data_Found</p>
+                            <p class="text-secondary mt-3">Access_Denied: No_Data_Found</p>
                         @endauth
                     </div>
                 </div>

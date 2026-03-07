@@ -1,24 +1,21 @@
 <x-layout>
-    <div class="container-fluid tech-main-section py-5" style="padding-top: 100px !important;">
+    <div class="container-fluid" style="padding: 150px 0">
         <div class="container">
-            <div class="row g-5">
+            <div class="row justify-content-between">
 
-                {{-- COLONNA SINISTRA: VISUAL ASSETS (CAROUSEL) --}}
-                <div class="col-12 col-lg-7 animate__animated animate__fadeInLeft">
-                    <div class="tech-form-card overflow-hidden p-1 shadow-lg h-100">
-                        <div class="card-corner-top"></div>
+                {{-- COLONNA SINISTRA --}}
+                <div class="col-12 col-md-6 mb-5 mb-md-0 d-flex  align-items-center">
+                    <div class="overflow-hidden p-1 shadow-lg ratio ratio-1x1">
 
                         @if ($article->images->count() > 0)
                             <div id="carouselExample" class="carousel slide h-100">
 
-                                {{-- Carousel Inner --}}
                                 <div class="carousel-inner bg-obsidian-card rounded h-100">
                                     @foreach ($article->images as $key => $image)
-                                        <div
-                                            class="carousel-item h-100 @if ($loop->first) active @endif">
+                                        <div class="carousel-item h-100 @if ($loop->first) active @endif">
                                             <img src="{{ $image->getUrl(600, 600) }}"
-                                                class="d-block w-100 object-fit-cover cyber-img-scan"
-                                                style="height: 550px;" alt="{{ $article->title }}">
+                                                class="d-block w-100 h-100 object-fit-cover"
+                                                alt="{{ $article->title }}">
                                         </div>
                                     @endforeach
                                 </div>
@@ -57,8 +54,7 @@
                             </div>
                         @else
                             {{-- Fallback se non ci sono immagini --}}
-                            <div class="bg-dark d-flex align-items-center justify-content-center rounded"
-                                style="height: 550px;">
+                            <div class="bg-dark d-flex align-items-center justify-content-center rounded h-100">
                                 <i class="bi bi-image text-secondary display-1"></i>
                             </div>
                         @endif
@@ -68,28 +64,27 @@
                 </div>
 
                 {{-- COLONNA DESTRA: METADATI E DESCRIZIONE --}}
-                <div class="col-12 col-lg-5 ps-lg-5 animate__animated animate__fadeInRight">
-                    <div class="d-flex flex-column h-100">
+                <div class="col-12 col-md-5 ps-lg-5">
+                    <div class="d-flex flex-column">
 
-                        {{-- Header Articolo --}}
                         <div class="mb-4">
                             <a href="{{ route('byCategory', $article->category) }}"
-                                class="text-neon text-decoration-none font-monospace small text-uppercase fw-bold mb-2 d-inline-block border-bottom border-success border-opacity-25 pb-1">
+                                class="text-neon text-decoration-none small text-uppercase mb-2 d-inline-block border-bottom border-success border-opacity-25 pb-1">
                                 <i class="bi bi-terminal me-2"></i>{{ __('ui.' . $article->category->name) }}
                             </a>
-                            <h2 class="fw-normal tech-glow-text text-uppercase mt-2">
+                            <h4 class="fw-normal tech-glow-text text-uppercase mt-2">
                                 {{ $article->title }}
-                                </h1>
-                                <div class="tech-stat-box p-3 bg-dark border-4 mt-3">
-                                    <p class="h3 text-white fw-bold mb-0">€
-                                        {{ number_format($article->price, 2, ',', '.') }}</p>
-                                </div>
+                            </h4>
+                            <div class="tech-stat-box p-3 bg-dark border-4 mt-3">
+                                <p class="h4 text-white fw-bold mb-0">€
+                                    {{ number_format($article->price, 2, ',', '.') }}</p>
+                            </div>
                         </div>
 
                         {{-- Descrizione --}}
                         <div class="tech-stat-box p-4 mb-4">
                             <h5
-                                class="text-neon font-monospace fw-bold text-uppercase border-bottom border-success border-opacity-25 pb-2 mb-3">
+                                class="text-neon text-uppercasepb-2 mb-3">
                                 <i class="bi bi-justify-left me-2"></i>{{ __('ui.description') }}
                             </h5>
                             <p class="mb-0 opacity-75">
@@ -97,7 +92,6 @@
                             </p>
                         </div>
 
-                        {{-- Footer Metadati (Autore e Data) --}}
                         <div class="mt-auto border-top border-success border-opacity-25 pt-4">
                             <div
                                 class="d-flex align-items-center p-3 bg-obsidian-card border border-success border-opacity-10 rounded">
@@ -106,11 +100,11 @@
                                     <i class="bi bi-person-bounding-box fs-4"></i>
                                 </div>
                                 <div class="ms-3">
-                                    <p class="mb-0 text-white font-monospace small fw-bold">
+                                    <p class="mb-0 text-white small fw-bold">
                                         <span class="text-secondary">{{ __('ui.soldBy') }}:</span>
                                         {{ $article->user->name }}
                                     </p>
-                                    <p class="mb-0 text-secondary x-small font-monospace">
+                                    <p class="mb-0 text-secondary x-small">
                                         <span class="text-neon">{{ __('ui.publishedOn') }}:</span>
                                         {{ $article->created_at->format('d.m.Y') }}
                                     </p>
@@ -119,8 +113,8 @@
 
                             {{-- Bottone Azione Torna Indietro --}}
                             <div class="d-grid gap-2 mt-4">
-                                <a href="{{ route('article.index') }}" {{-- Link corretto all'archivio --}}
-                                    class="text-neon text-decoration-none font-monospace small text-uppercase fw-bold mb-2 d-inline-block border-bottom border-success border-opacity-25 pb-1">
+                                <a href="{{ route('article.index') }}"
+                                    class="text-neon text-decoration-none small text-uppercases mb-2 d-inline-block">
                                     <i class="bi bi-arrow-left me-2"></i>{{ __('ui.backToArticle') }}
                                 </a>
                             </div>

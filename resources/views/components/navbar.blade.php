@@ -13,14 +13,14 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mx-auto align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('homepage') }}">Home</a>
+                    <a class="nav-link fs-6" href="{{ route('homepage') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('article.index') }}">{{ __('ui.articles') }}</a>
+                    <a class="nav-link fs-6" href="{{ route('article.index') }}">{{ __('ui.articles') }}</a>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                    <a href="#" class="nav-link dropdown-toggle fs-6" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         {{ __('ui.categories') }}
                     </a>
@@ -28,7 +28,7 @@
                         @foreach ($categories as $category)
                             <li>
                                 <a href="{{ route('byCategory', ['category' => $category]) }}"
-                                    class="dropdown-item text-capitalize">
+                                    class="dropdown-item text-capitalize fs-6">
                                     {{ __('ui.' . $category->name) }}
                                 </a>
                             </li>
@@ -39,7 +39,7 @@
                 @auth
                     @if (Auth::user()->is_revisor)
                         <li class="nav-item mx-2 mt-3 mt-md-0">
-                            <a class="nav-link btn-revisor-glow position-relative" href="{{ route('revisor.index') }}">
+                            <a class="nav-link btn-revisor-glow position-relative fw-bold fs-6" href="{{ route('revisor.index') }}">
                                 {{ __('ui.reviewerArea') }}
                                 <span class="badge-tech">
                                     {{ \App\Models\Article::toBeRevisedCount() }}
@@ -49,24 +49,24 @@
                     @endif
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link nav-link-custom dropdown-toggle user-glow" href="#" role="button"
+                        <a class="nav-link nav-link-custom dropdown-toggle user-glow fs-6" href="#" role="button"
                             data-bs-toggle="dropdown">
                             <i class="bi bi-person-circle me-1"></i> {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu tech-dropdown">
-                            <li><a class="dropdown-item"
+                            <li><a class="dropdown-item fs-6"
                                     href="{{ route('article.create') }}">{{ __('ui.articleCreate') }}</a></li>
-                            <li><a class="dropdown-item" href="{{ route('user.dashboard') }}">{{ __('ui.dashboard') }}</a>
+                            <li><a class="dropdown-item fs-6" href="{{ route('user.dashboard') }}">{{ __('ui.dashboard') }}</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider border-secondary opacity-25">
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#"
+                                <a class="dropdown-item fs-6" href="#"
                                     onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">
                                     {{ __('ui.logout') }}
                                 </a>
-                                <form action="{{ route('logout') }}" method="POST" id="form-logout" class="d-none">
+                                <form action="{{ route('logout') }}" method="POST" id="form-logout" class="d-none fs-6">
                                     @csrf
                                 </form>
                             </li>
@@ -74,12 +74,12 @@
                     </li>
                 @else
                     <li class="nav-item dropdown">
-                        <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                        <a class="nav-link nav-link-custom dropdown-toggle fs-6" href="#" data-bs-toggle="dropdown">
                             {{ __('ui.login') }} / {{ __('ui.register') }}
                         </a>
                         <ul class="dropdown-menu tech-dropdown dropdown-menu-end">
-                            <li><a class="dropdown-item" href="{{ route('login') }}">{{ __('ui.login') }}</a></li>
-                            <li><a class="dropdown-item" href="{{ route('register') }}">{{ __('ui.register') }}</a></li>
+                            <li><a class="dropdown-item fs-6" href="{{ route('login') }}">{{ __('ui.login') }}</a></li>
+                            <li><a class="dropdown-item fs-6" href="{{ route('register') }}">{{ __('ui.register') }}</a></li>
                         </ul>
                     </li>
                 @endauth

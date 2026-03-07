@@ -8,6 +8,7 @@
     color: #fff !important;
     border-collapse: separate;
     border-spacing: 0;
+    min-width: 400px;
 }
 
 .tech-dark-table thead {
@@ -38,7 +39,7 @@
     box-shadow: none;
 }
 
-.table{
+.table {
     --bs-table-border-color: none;
 }
 
@@ -95,4 +96,23 @@
 .del-link:hover {
     color: #ff3e3e;
     text-shadow: 0 0 8px #ff3e3e;
+}
+
+@media (max-width: 576px) {
+    .badge-status-cyber {
+        font-size: 0.5rem;
+        padding: 2px 6px;
+        white-space: nowrap;
+    }
+
+    .img-thumb-cyber-table {
+        width: 35px;
+        height: 35px;
+    }
+
+    .tech-dark-table th {
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+        padding: 10px 5px !important;
+    }
 }

@@ -1,7 +1,7 @@
 <x-layout>
-    <div class="container-fluid page-header">
-        <div class="row px-3 px-md-5">
-            <div class="col-12 text-center text-md-start">
+    <div class="container page-header">
+        <div class="row">
+            <div class="col-12 col-md-8 text-center text-md-start">
 
                 <h1 class="display-4 fw-bold tech-glow-text text-uppercase mb-0">
                     {{ __('ui.revisorDashboard') }}
@@ -32,10 +32,10 @@
                 {{-- AREA ANALISI IMMAGINI (Sinistra) --}}
                 <div class="col-lg-8">
                     @forelse ($article_to_check->images as $key => $image)
-                        <div class="card tech-form-card mb-4 overflow-hidden animate__animated animate__fadeInLeft"
+                        <div class="card tech-form-card mb-4 overflow-hidden"
                             style="animation-delay: {{ $key * 0.1 }}s">
                             <div class="card-header bg-dark border-bottom border-success border-opacity-25 py-3">
-                                <span class="text-neon font-monospace text-uppercase">{{__('ui.image')}}: #{{ $key + 1 }}</span>
+                                <span class="text-neon text-uppercase">{{__('ui.image')}}: #{{ $key + 1 }}</span>
                             </div>
                             <div class="card-body bg-obsidian-card p-4">
                                 <div class="row align-items-center">
@@ -49,7 +49,7 @@
 
                                     {{-- AI Labels --}}
                                     <div class="col-md-4 border-start border-success border-opacity-10">
-                                        <h6 class="text-white text-uppercase small fw-bold mb-3 font-monospace">
+                                        <h6 class="text-white text-uppercase small fw-bold mb-3">
                                             <i class="bi bi-tags text-neon me-2"></i>AI_Labels
                                         </h6>
                                         <div class="d-flex flex-wrap gap-2">
@@ -58,17 +58,17 @@
                                                     <span class="text-white opacity-50 py-1 px-2">#{{ $label }}</span>
                                                 @endforeach
                                             @else
-                                                <p class="text-secondary font-monospace small">NO_DATA_EXTRACTED</p>
+                                                <p class="text-secondary small">NO_DATA_EXTRACTED</p>
                                             @endif
                                         </div>
                                     </div>
 
                                     {{-- Safety Check --}}
                                     <div class="col-md-4 border-start border-success border-opacity-10">
-                                        <h6 class="text-white text-uppercase small fw-bold mb-3 font-monospace">
+                                        <h6 class="text-white text-uppercase small fw-bold mb-3">
                                             <i class="bi bi-shield-check text-neon me-2"></i>Safety_Rep
                                         </h6>
-                                        <div class="safety-grid font-monospace">
+                                        <div class="safety-grid">
                                             @php
                                                 $checks = [
                                                     'Adult' => $image->adult,
@@ -108,21 +108,21 @@
 
                             <div class="mb-4">
                                 <div class="mb-3 text-start">
-                                    <p class="mb-0 text-neon font-monospace small text-uppercase">
+                                    <p class="mb-0 text-neon small text-uppercase">
                                         {{ __('ui.author') }}</p>
                                     <p class="text-white fw-bold bg-dark p-2  small">
                                         {{ $article_to_check->user->name }}
                                     </p>
                                 </div>
                                 <div class="mb-3 text-start">
-                                    <p class="mb-0 text-neon font-monospace small text-uppercase">
+                                    <p class="mb-0 text-neon small text-uppercase">
                                         {{ __('ui.price') }}</p>
                                     <p class="h4 text-white fw-bold bg-dark p-2 ">
                                         € {{ number_format($article_to_check->price, 2, ',', '.') }}
                                     </p>
                                 </div>
                                 <div class="text-start">
-                                    <p class="mb-0 text-neon font-monospace small text-uppercase">
+                                    <p class="mb-0 text-neon small text-uppercase">
                                         {{ __('ui.description') }}</p>
                                     <div class="bg-dark p-3  mt-1">
                                         <p class="text-secondary small mb-0"
@@ -158,7 +158,7 @@
                 <div class="badge-dashed p-5">
                     <i class="bi bi-terminal-check display-1 text-neon mb-4"></i>
                     <h2 class="display-6 text-white text-uppercase fw-normal tech-h2">{{ __('ui.greatJob') }}</h2>
-                    <p class="text-secondary font-monospace lead mb-4">{{ __('ui.noReview') }}</p>
+                    <p class="text-secondary lead mb-4">{{ __('ui.noReview') }}</p>
                     <a href="{{ route('homepage') }}" class="btn-cyber-large">
                         <i class="bi bi-house-door me-2"></i>{{ __('ui.backToHome') }}
                     </a>
