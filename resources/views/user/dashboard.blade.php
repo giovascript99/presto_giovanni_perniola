@@ -9,6 +9,7 @@
                     </h1>
 
                 </div>
+
                 <div class="title-underline-neon mt-3 ms-5 ms-md-0"></div>
             </div>
 
@@ -18,6 +19,7 @@
                 </a>
             </div>
         </div>
+        <x-alert-message />
     </div>
 
     <div class="container my-5">
@@ -79,7 +81,7 @@
                                         {{ $article->title }}</div>
                                 </td>
                                 <td class="d-none d-md-table-cell">
-                                    <span class="text-neon small">#{{ $article->category->name }}</span>
+                                    <span class="text-neon small">#{{ __('ui.' . $article->category->name) }}</span>
                                 </td>
                                 <td>
                                     @php
