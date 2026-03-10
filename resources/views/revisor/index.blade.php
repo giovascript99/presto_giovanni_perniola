@@ -42,7 +42,7 @@
                                     {{-- Immagine con bordo tecnico --}}
                                     <div class="col-md-4 text-center position-relative mb-3 mb-md-0">
                                         <div class="p-1 border border-success border-opacity-25 bg-dark">
-                                            <img src="{{ $image->getUrl(600, 600) }}" class="img-fluid shadow-lg"
+                                            <img src="{{ $image->getUrl(900, 900) }}" class="img-fluid shadow-lg"
                                                 alt="Entity {{ $key + 1 }}">
                                         </div>
                                     </div>

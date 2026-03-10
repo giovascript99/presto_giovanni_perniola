@@ -3,7 +3,7 @@
     <div class="card-corner-top"></div>
 
     <div class="position-relative">
-        <img src="{{ $article->images->isNotEmpty() ? $article->images->first()->getUrl(600, 600) : 'https://picsum.photos/400/300' }}"
+        <img src="{{ $article->images->isNotEmpty() ? $article->images->first()->getUrl(900, 900) : 'https://picsum.photos/400/300' }}"
             class="cyber-card-img" alt="{{ $article->title }}">
     </div>
 

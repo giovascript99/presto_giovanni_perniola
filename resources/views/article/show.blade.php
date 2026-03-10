@@ -13,7 +13,7 @@
                                 <div class="carousel-inner bg-obsidian-card rounded h-100">
                                     @foreach ($article->images as $key => $image)
                                         <div class="carousel-item h-100 @if ($loop->first) active @endif">
-                                            <img src="{{ $image->getUrl(600, 600) }}"
+                                            <img src="{{ $image->getUrl(900, 900) }}"
                                                 class="d-block w-100 h-100 object-fit-cover"
                                                 alt="{{ $article->title }}">
                                         </div>
